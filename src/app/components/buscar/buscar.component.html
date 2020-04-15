@@ -16,22 +16,27 @@
 
   <!--PROPIEDADES-->
 
-  <div class="col-lg-8" id="propiedades">
-    <h2><i class="fas fa-handshake"></i> PROPIEDADES EN ARRIENDO</h2><br>
+  <div class="col-lg-8" id="propiedades" *ngIf="propiedades">
+    <h2><i class="fas fa-search"></i> BUSQUEDA</h2><br>
+
+    <div class="alert alert-warning" role="alert" *ngIf="propiedades.length == 0">
+      <i class="fas fa-exclamation"></i> Lo sentimos, actualmente <b>no existen coincidencias</b> para tu busqueda.
+    </div>
 
     <!--LISTADO DE PROPIEDADES-->
 
     <div class="row justify-content-center" id="listado">
-
-      <div class="col-lg-4 col-md-6 col-sm-12 mx-auto" id="listado-item" *ngFor="let propiedad of resultados">
-        <div class="card" style="min-height: 490px">
+      <div class="col-lg-4 col-md-6 col-sm-12 mx-auto" id="listado-item"
+        *ngFor="let propiedad of propiedades | paginate: { itemsPerPage: 6, currentPage: p }">
+        <div class="card" style="min-height: 520px">
           <img class="card-img-top" src="{{ url + 'propiedad/image/' + propiedad.image }}" alt="Card image cap"
             style="height: 200px">
           <div class="card-body">
             <h5 class="card-title pb-0 mb-0" style="font-size: 19px;">{{propiedad.titulo}}</h5>
             <p class="mt-0 pt-0"> <span class="badge badge-success"
-                style="font-size:12px;">{{propiedad.operacion}}</span> - {{propiedad.ciudad}}</p>
-            <p class="card-text text-justify pb-0 mb-0">{{propiedad.content}}</p>
+                style="font-size:12px;">{{propiedad.operacion}}</span> -
+              {{propiedad.ciudad}}</p>
+            <div style="width: 100%; height: 80px;" ellipsis [ellipsis-content]="propiedad.content"></div>
             <div class="text-right p-0 m-0">
               <span class="badge badge-secondary">${{propiedad.precio | separadorMilesPipe}}</span>
             </div>
@@ -41,17 +46,58 @@
               <a [routerLink]="['/ficha-propiedad', propiedad.id]" class="btn btn-primary btn-block"><i
                   class="fas fa-eye"></i> Más información</a>
             </div>
+            <div class="row mt-1" *ngIf="identity">
+              <div class="col-6">
+                <button [routerLink]="['/editar-propiedad', propiedad.id]"
+                  class="btn btn-block btn-warning text-white">EDITAR</button>
+              </div>
+              <div class="col-6">
+                <button type="button" class="btn btn-danger" data-toggle="modal"
+                  [attr.data-target]="'#myModal'+propiedad.id">
+                  BORRAR
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal{{propiedad.id}}">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title">¿Seguro quieres borrar esta propiedad?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        Los datos no podrean recuperarste, estas seguro que vas a borrar definitivamente esta propiedad:
+                        <br> {{propiedad.titulo}}
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                        <a (click)="deletePropiedad(propiedad.id)" class="btn btn-danger"
+                          data-dismiss="modal">Borrar</a>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
 
+
     <!--Paginacion-->
-    <!--  <div class="text-center pt-2">
-          <pagination-controls class="my-pagination" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
-          (pageChange)="p = $event"></pagination-controls>
-      </div>
-   -->
+    <div class="text-center pt-2">
+      <pagination-controls class="my-pagination" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+        (pageChange)="p = $event"></pagination-controls>
+    </div>
+
   </div>
 </div>
