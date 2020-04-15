@@ -1,0 +1,119 @@
+<!-- Footer -->
+<footer class="pt-4 bg-light">
+    
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Sobre Frontman Propiedades</h5>
+        <p class="text-justify">Somos <b>una empresa del más alto nivel profesional</b> que gestiona la compra, la venta, el arriendo y la administración de su propiedad con el objetivo de <b>
+          maximizar la rentabilidad y velocidad de
+            éxito
+        </b> de su operación inmobiliaria.
+        </p>
+
+      </div>
+
+     
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->  
+      <div class="col-md-2 mx-auto">
+
+        <img src="assets/images/op2-logo.png" class="img-fluid">
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Administración</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a [routerLink]="['/login']" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i>&nbsp;Acceso administrador</a>
+          </li>
+          <li>
+            <a href="https://frontman.cl/webmail"><i class="fas fa-sign-in-alt"></i>&nbsp;Acceso a correo coorporativo</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <hr>
+
+  <div class="container">
+    <div class="row" *ngIf="indicadores">
+        <div class="col-md-2 text-center">
+          <p class="mb-md-0"><b>INDICADORES</b></p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p class="badge badge-pill badge-success indicador mb-md-0">
+            <b>UF:</b> {{indicadores.uf.valor | number}}
+          </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p class="badge badge-pill badge-success indicador mb-md-0">
+            <b>UTM:</b> {{indicadores.utm.valor | number}}
+          </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p class="badge badge-pill badge-success indicador mb-md-0">
+            <b>IPC:</b> {{indicadores.ipc.valor}}
+          </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p class="badge badge-pill badge-success indicador mb-md-0">
+            <b>DOLAR:</b> {{indicadores.dolar.valor}}
+          </p>
+        </div>
+        <div class="col-md-2 text-center">
+          <p class="badge badge-pill badge-success indicador mb-md-0">
+            <b>EURO:</b> {{indicadores.euro.valor}}
+          </p>
+        </div>
+      </div>
+  </div>
+  
+    <hr>
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-footer" href="https://www.facebook.com/FrontmanPropiedadesinmobiliaria/" target="__blank">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+   
+    <li class="list-inline-item">
+      <a class="btn-floating btn-footer" href="https://www.instagram.com/frontman.propiedades" target="__blank">
+        <i class="fab fa-instagram"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© Todos los derechos reservados | FRONTMAN 2019</div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

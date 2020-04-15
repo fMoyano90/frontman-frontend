@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-12 text-center" id="contactanos">
+    <h2><b>CONTACTANOS</b></h2>
+    <hr>
+    <div class="alert alert-success col-5" *ngIf="status == 'success'">
+      Tu mensaje se ha enviado exitosamente.
+    </div>
+    <div class="alert alert-danger col-5" *ngIf="status == 'error'">
+      Tu mensaje no fue enviado, intenta más tarde.
+    </div>
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ex urna, lobortis at lorem pellentesque, congue pretium risus. Cras vel tortor sed est vehicula aliquet. Nulla mattis, leo nec bibendum cursus, ipsum turpis varius velit, quis pharetra mauris augue id metus.</p> -->
+  </div>
+
+  <div class="container">
+    <div class="row" id="body-contacto">
+
+         
+
+          <form class="offset-lg-1 col-lg-4 col-sm-12 mt-2" #contactoForm="ngForm" (ngSubmit)="onSubmit(contactoForm)">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user-circle"></i>&nbsp;Nombre</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" #name="ngModel" [(ngModel)]="contacto.name" required>
+              <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">El nombre es obligatorio</small>
+            </div>
+       
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="far fa-user-circle"></i>&nbsp;Apellido</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="surname" #surname="ngModel" [(ngModel)]="contacto.surname" required>
+              <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">El apellido es obligatorio</small>
+            </div>
+  
+         
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-mobile-alt"></i>&nbsp;Telefono</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="telefono" #telefono="ngModel" [(ngModel)]="contacto.telefono" required>
+              <small *ngIf="!telefono.valid && telefono.touched" class="invalid-feedback d-block">El telefono es obligatorio</small>
+            </div>
+        
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="far fa-envelope"></i>&nbsp;Correo</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" #email="ngModel" [(ngModel)]="contacto.email" required pattern="[A-ZÑña-z0-9._%+-]+@[ña-z0-9.-]+\.[a-z A-Z]{2,8}$">
+              <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">El e-mail es obligatorio</small>
+            </div>
+
+            <div class="form-group">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Dejanos tu mensaje" name="mensaje" #mensaje="ngModel" [(ngModel)]="contacto.mensaje" required></textarea>
+              <small *ngIf="!mensaje.valid && mensaje.touched" class="invalid-feedback d-block">El mensaje es obligatorio</small>
+
+            </div>
+
+            <button type="submit" class="btn btn-block btn-primary mb-5" [disabled]="contactoForm.invalid"><i class="far fa-paper-plane"></i> ENVIAR</button>
+
+          </form>
+
+          <div class="offset-lg-1 col-lg-5 col-sm mt-lg-5">
+            <a href="https://wa.me/56964953810" target="__blank"><img src="assets/images/WHATSAPP.png" class="img-fluid animated flipInX faster" id="btn-whatsapp"></a>
+          </div>
+    
+        
+    </div>
+  </div>
+
+
+
+</div>

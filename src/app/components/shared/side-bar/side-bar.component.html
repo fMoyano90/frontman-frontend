@@ -1,0 +1,152 @@
+  <!--BUSCADOR-->
+  <aside id="buscador">
+    <p><i class="fas fa-search"></i><b> BUSCADOR</b></p>
+    <form
+    #busquedaForm="ngForm"
+    (ngSubmit)="buscar(busquedaForm)"
+    >
+      <label>Operación</label>
+      <select 
+      class="form-control custom-select"
+      #operacion="ngModel"
+      [(ngModel)]="busqueda.operacion"
+      name="operacion"
+      >
+        <option selected disabled>
+          Elige una opción
+        </option>
+        <option value="ARRIENDO">
+          Arriendo
+        </option>
+        <option value="VENTA">
+          Venta
+        </option>
+      </select>
+
+      <label>Tipo de propiedad</label>
+      <select
+      class="form-control custom-select"
+      #titulo="ngModel"
+      [(ngModel)]="busqueda.titulo"
+      name="titulo"
+      placeholder="Elige una opción"
+      >
+        <option selected disabled>
+          Elige una opción
+        </option>
+        <option value="Casa">
+          Casa
+        </option>
+        <option value="Departamento">
+          Departamento
+        </option>
+        <option value="Oficina">
+          Oficina
+        </option>
+        <option value="Local">
+          Local comercial 
+        </option>
+        <option value="Terreno">
+          Terreno
+        </option>
+      </select>
+
+      <label>Ciudad</label>
+      <select
+      class="form-control custom-select"
+      #ciudad="ngModel"
+      [(ngModel)]="busqueda.ciudad"
+      name="ciudad"
+      >
+        <option selected disabled>
+          Elige una opción
+        </option>
+        <option value="Valparaiso">
+          Valparaiso
+        </option>
+        <option value="Viña del mar">
+          Viña del Mar
+        </option>
+        <option value="Con Con">
+          Con Con 
+        </option>
+        <option value="Reñaca">
+          Reñaca
+        </option>
+        <option value="Quilpue">
+          Quilpue
+        </option>
+        <option value="Villa Alemana">
+          Villa Alemana
+        </option>
+        <option value="San Felipe">
+          San Felipe
+        </option>
+        <option value="Putaendo">
+          Putaendo
+        </option>
+        <option value="Los Andes">
+          Los Andes
+        </option>
+        <option value="Calle Larga">
+          Calle Larga
+        </option>
+        <option value="San Esteban">
+          San Esteban
+        </option>
+        <option value="Rinconada">
+          Rinconada de Los Andes 
+        </option>
+        <option value="Santiago">
+          Santiago
+        </option>
+      </select>
+
+      <label>Codigo</label>
+      <input 
+      type="text" 
+      class="form-control custom-select"
+      #codigo="ngModel"
+      [(ngModel)]="busqueda.codigo"
+      name="codigo"
+      >
+      <button type="submit" class="btn btn-primary btn-block">
+        BUSCAR
+      </button>
+    </form>
+  </aside>
+  
+  <!--SERVICIOS-->
+  <aside class="d-none d-sm-none d-md-block">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">SERVICIOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a [routerLink]="['/contacto']">Arriendo de propiedades</a></td>
+            </tr>
+            <tr>                  
+              <td><a [routerLink]="['/contacto']">Venta de propiedades</a></td>         
+            </tr>
+            <tr>
+              <td><a [routerLink]="['/contacto']">Tasación de propiedades</a></td>
+            </tr>
+            <tr>
+              <td><a [routerLink]="['/contacto']">Estudio de título</a></td>
+            </tr>
+            <tr>
+              <td><a [routerLink]="['/contacto']">Gestión de credito hipotecario</a></td>
+            </tr>
+          </tbody>
+        </table>
+  </aside>
+  <hr>
+  <!--BANNER-->
+  <aside id="banner" class="text-center">
+    <a [routerLink]="['/confiar-propiedad']"><img src="assets/images/banner.png" class="img-fluid pt-2"></a>
+  </aside>
+
+

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12 text-center text-white" id="venta">
+    <h1>RESULTADO DE BUSQUEDA</h1>
+  </div>
+</div>
+
+<!--PRINCIPAL-->
+
+<div class="row">
+
+  <!--SIDEBAR-->
+
+  <div class="col-3">
+    <app-side-bar (resultadoEvent)="recibeResultados($event)"></app-side-bar>
+  </div>
+
+  <!--PROPIEDADES-->
+
+  <div class="col-lg-8" id="propiedades">
+    <h2><i class="fas fa-handshake"></i> PROPIEDADES EN ARRIENDO</h2><br>
+
+    <!--LISTADO DE PROPIEDADES-->
+
+    <div class="row justify-content-center" id="listado">
+
+      <div class="col-lg-4 col-md-6 col-sm-12 mx-auto" id="listado-item" *ngFor="let propiedad of resultados">
+        <div class="card" style="min-height: 490px">
+          <img class="card-img-top" src="{{ url + 'propiedad/image/' + propiedad.image }}" alt="Card image cap"
+            style="height: 200px">
+          <div class="card-body">
+            <h5 class="card-title pb-0 mb-0" style="font-size: 19px;">{{propiedad.titulo}}</h5>
+            <p class="mt-0 pt-0"> <span class="badge badge-success"
+                style="font-size:12px;">{{propiedad.operacion}}</span> - {{propiedad.ciudad}}</p>
+            <p class="card-text text-justify pb-0 mb-0">{{propiedad.content}}</p>
+            <div class="text-right p-0 m-0">
+              <span class="badge badge-secondary">${{propiedad.precio | separadorMilesPipe}}</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="text-center">
+              <a [routerLink]="['/ficha-propiedad', propiedad.id]" class="btn btn-primary btn-block"><i
+                  class="fas fa-eye"></i> Más información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--Paginacion-->
+    <!--  <div class="text-center pt-2">
+          <pagination-controls class="my-pagination" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+          (pageChange)="p = $event"></pagination-controls>
+      </div>
+   -->
+  </div>
+</div>

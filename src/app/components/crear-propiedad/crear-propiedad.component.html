@@ -1,0 +1,313 @@
+<div class="row">
+  <div class="col-12 text-center" id="contactanos">
+    <h2 *ngIf="!is_edit"><b>CREA UNA PROPIEDAD NUEVA</b></h2>
+    <h2 *ngIf="is_edit">
+      <b>EDITA LA PROPIEDAD: {{ propiedad.titulo }}</b>
+    </h2>
+    <hr />
+  </div>
+
+  <div class="container">
+    <form
+      class="form-row crearPropiedad"
+      #propiedadNueva="ngForm"
+      (ngSubmit)="onSubmit(propiedadNueva)"
+    >
+      <div class="col-lg-5">
+        <h3><i class="fas fa-key pb-3"></i> DATOS DE LA PROPIEDAD</h3>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-filter"></i>&nbsp;Categoria</span
+            >
+          </div>
+          <select
+            class="custom-select"
+            #category_id="ngModel"
+            [(ngModel)]="propiedad.category_id"
+            name="category_id"
+          >
+            <option selected>Elige una opción</option>
+            <option value="1">Ventas</option>
+            <option value="2">Arriendos</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-award"></i>&nbsp;Titulo</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #titulo="ngModel"
+            [(ngModel)]="propiedad.titulo"
+            name="titulo"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-barcode"></i>&nbsp;Codigo</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #codigo="ngModel"
+            [(ngModel)]="propiedad.codigo"
+            name="codigo"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-handshake"></i>&nbsp;Operación</span
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="inputGroupSelect01"
+            #operacion="ngModel"
+            [(ngModel)]="propiedad.operacion"
+            name="operacion"
+          >
+            <option selected>Elige una opción</option>
+            <option value="VENTA">Vender</option>
+            <option value="ARRIENDO">Arrendar</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-hand-holding-usd"></i>&nbsp;Precio</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #precio="ngModel"
+            [(ngModel)]="propiedad.precio"
+            name="precio"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-map-marked-alt"></i>&nbsp;Ciudad</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #ciudad="ngModel"
+            [(ngModel)]="propiedad.ciudad"
+            name="ciudad"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-map-marker-alt"></i>&nbsp;Dirección</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #direccion="ngModel"
+            [(ngModel)]="propiedad.direccion"
+            name="direccion"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-crop-alt"></i
+              >&nbsp;M<sup>2</sup>&nbsp;Construidos</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #mtsconstruidos="ngModel"
+            [(ngModel)]="propiedad.mtsconstruidos"
+            name="mtsconstruidos"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-crop-alt"></i
+              >&nbsp;M<sup>2</sup>&nbsp;Terreno</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            #mtstotales="ngModel"
+            [(ngModel)]="propiedad.mtstotales"
+            name="mtstotales"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-bed"></i>&nbsp;Dormitorios</span
+            >
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            #dormitorios="ngModel"
+            [(ngModel)]="propiedad.dormitorios"
+            name="dormitorios"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-toilet"></i>&nbsp;Baños</span
+            >
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            #banos="ngModel"
+            [(ngModel)]="propiedad.banos"
+            name="banos"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-6 offset-lg-1 mt-lg-5">
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-boxes"></i>&nbsp;Bodega</span
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="inputGroupSelect01"
+            #bodega="ngModel"
+            [(ngModel)]="propiedad.bodega"
+            name="bodega"
+          >
+            <option selected>Elige una opción</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-tshirt"></i>&nbsp;Logia</span
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="inputGroupSelect01"
+            #logia="ngModel"
+            [(ngModel)]="propiedad.logia"
+            name="logia"
+          >
+            <option selected>Elige una opción</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text propiedad"
+              ><i class="fas fa-swimmer"></i>&nbsp;Piscina</span
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="inputGroupSelect01"
+            #piscina="ngModel"
+            [(ngModel)]="propiedad.piscina"
+            name="piscina"
+          >
+            <option selected>Elige una opción</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            rows="3"
+            placeholder="Descripción de la propiedad"
+            #content="ngModel"
+            [(ngModel)]="propiedad.content"
+            name="content"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="image"
+            ><i class="fas fa-image pb-3"></i> IMAGEN PRINCIPAL</label
+          >
+          <div *ngIf="is_edit && propiedad.image">
+            <img
+              src="{{ url + 'propiedad/image/' + propiedad.image }}"
+              class="img-fluid pb-2"
+            />
+          </div>
+          <angular-file-uploader
+            [config]="afuConfig1"
+            [resetUpload]="resetVar"
+            (ApiResponse)="imageUploadPrincipal($event)"
+            style="cursor: pointer;"
+          >
+          </angular-file-uploader>
+        </div>
+
+        <div class="form-group">
+          <label for="image"
+            ><i class="fas fa-image pb-3"></i> IMAGENES SECUNDARIAS</label
+          >
+          <angular-file-uploader
+            #fileUpload1
+            [config]="afuConfig"
+            [resetUpload]="resetVar"
+            (ApiResponse)="imageUpload($event)"
+            style="cursor: pointer;"
+          >
+          </angular-file-uploader>
+        </div>
+      </div>
+
+      <button
+        *ngIf="!is_edit"
+        type="submit"
+        class="btn btn-block btn-primary mb-5 mt-2"
+      >
+        <i class="fas fa-cloud-upload-alt"></i> SUBIR PROPIEDAD
+      </button>
+      <button
+        *ngIf="is_edit"
+        type="submit"
+        class="btn btn-block btn-primary mb-5 mt-2"
+      >
+        <i class="fas fa-pen"></i> EDITAR PROPIEDAD
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="row mt-5 mb-5 bg-light p-lg-3 p-sm-2">
+    <div class="col-lg-5">
+      <ngx-gallery
+        [options]="galleryOptions"
+        [images]="galleryImages"
+      ></ngx-gallery>
+    </div>
+
+    <div
+      class="col-lg-7"
+      *ngIf="propiedad"
+    >
+      <h1>
+        {{propiedad.titulo}}
+
+        <span class="badge badge-secondary bg-success">{{propiedad.operacion}}</span>
+      </h1>
+
+      <h3>
+        {{propiedad.ciudad}}
+
+        <small>- {{propiedad.direccion}}</small>
+      </h3>
+
+      <div class="row">
+        <div
+          class="col-lg-4 col-sm-5"
+          id="datos"
+        >
+          <table class="table">
+            <tr>
+              <td class="pt-1 pb-1">
+                M
+
+                <sup>2</sup>
+
+                Totales
+              </td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.mtstotales}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">
+                M
+
+                <sup>2</sup>
+
+                Construidos
+              </td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.mtsconstruidos}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Dormitorios</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.dormitorios}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Baños</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.banos}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Bodega</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.bodega}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Logia</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.logia}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Piscina</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.piscina}}</b>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pt-1 pb-1">Codigo</td>
+
+              <td class="pt-1 pb-1">
+                <b>{{propiedad.codigo}}</b>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div
+          class="col-lg-8 col-sm-7 mt-3"
+          *ngIf="propiedad"
+        >
+          <h2 class="text-right pt-0 mt-0">
+            <span class="badge badge-pill badge-secondary">
+              $ {{propiedad.precio | separadorMilesPipe}}
+            </span>
+          </h2>
+
+          <p>
+            <b>DESCRIPCIÓN:</b>
+          </p>
+
+          <p class="text-justify">{{propiedad.content}}</p>
+        </div>
+      </div>
+    </div>
+
+    <a
+      [routerLink]="['/contacto']"
+      class="btn btn-block btn-primary mt-1"
+    >
+      <b>SOLICITAR UNA VISITA</b>
+    </a>
+
+    <!-- <div *ngIf="identity">
+      <a [routerLink]="['/subir-imagenes', propiedad.id]" class="btn btn-block btn-success mt-1"><b>SUBIR IMAGENES</b></a>
+    </div> -->
+  </div>
+</div>

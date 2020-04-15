@@ -1,0 +1,66 @@
+<!--Pre navegación-->
+<div class="container">
+  <div class="row">
+    <div clasS="col-6">
+      <img src="assets/images/logo-op4-frontman2.jpg" id="logo">
+    </div>
+    <div class="col-6 text-right">
+      <p style="font-size: 21px" class="mt-2">
+        <a href="https://www.facebook.com/FrontmanPropiedadesinmobiliaria/" target="__blank" class="mr-2"><i class="fab fa-facebook-square"></i></a> 
+        <a href="https://www.instagram.com/frontman.propiedades" target="__blank"><i class="fab fa-instagram"></i></a>
+      </p>
+      <p style="font-size:21px" class="d-none d-sm-none d-md-block">
+        <i class="fas fa-envelope-open-text"></i> info@frontman.cl     
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--Navegador-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <a class="nav-link" [routerLink]="['/inicio']">INICIO <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROPIEDADES
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/propiedades-en-venta/1']">PROPIEDADES EN VENTA</a>
+          <a class="dropdown-item" [routerLink]="['/propiedades-en-arriendo/2']">PROPIEDADES EN ARRIENDO</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['/confiar-propiedad']">CONFIENOS SU PROPIEDAD</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/sobre-nosotros']">NOSOTROS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contacto']">CONTACTO</a>
+      </li>
+    </ul>
+    <span class="navbar-text ml-auto">
+      <a href="tel:+56964953810" class="btn btn-primary text-white"><i class="fas fa-mobile"></i> <strong> +569 6495 3810</strong></a>
+    </span>
+    <ul class="navbar-nav ml-auto" *ngIf="identity && identity.name">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ identity.name + ' ' + identity.surname }}
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" [routerLink]="['/crear-propiedad']"><i class="fas fa-home"> </i> Crear propiedad</a>
+        <a class="dropdown-item" [routerLink]="['/$assfcxrg&&tgadfzx112312aasda+9@q/registro']"><i class="fas fa-user"> </i>&nbsp; Registrar usuario</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" [routerLink]="['/logout/1']"><i class="fas fa-sign-out-alt"> </i> Salir</a>
+      </div>
+    </li>
+  </ul>
+  </div>
+</nav>
